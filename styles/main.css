@@ -32,9 +32,7 @@ main {
 
 /* Terminal styles */
 #terminal {
-    width: 50%;
-    max-width: 45rem;
-    min-width: 35rem;
+    width: 45rem;
     aspect-ratio: 16 / 11;
 
     background-color: var(--terminal-background);
