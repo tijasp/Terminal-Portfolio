@@ -1,3 +1,5 @@
-import { keyboardListener } from "./eventListeners.js";
+import { keyboardListener } from "./eventListener.js";
 
-keyboardListener()
+export function main() {
+    keyboardListener()
+}

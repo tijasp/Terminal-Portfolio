@@ -81,7 +81,7 @@ main {
     margin-right: 0.5rem;
     font-weight: 700;
     color: #50fa7b;
-}z
+}
 
 .terminalUsername span {
     font-weight: 500;
@@ -93,16 +93,15 @@ main {
     color: #bd93f9;
 }
 
-.terminalCarret {
+.terminalCursor {
     display: inline-block;
-    width: 8px;               /* Largeur du carré */
-    height: 18px;              /* Hauteur alignée sur la taille du texte */
-    background-color: white; /* Couleur du curseur Ubuntu */
+    width: 8px;
+    height: 18px;
+    background-color: white;
     margin-left: 1px;
     animation: blink 1s step-end infinite;
 }
 
-/* Animation de clignotement de la console */
 @keyframes blink {
     0%, 
     50% { 
