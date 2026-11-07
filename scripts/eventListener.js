@@ -1,4 +1,4 @@
-import { insertChar } from "./dom.js"
+import { insertChar, commandExec } from "./script.js";
 
 export function keyboardListener() {
     document.addEventListener("keydown", (e) => {
@@ -7,7 +7,7 @@ export function keyboardListener() {
         if (re.test(e.key) && e.key.length === 1 || e.key === "Backspace" || e.key === " ") {
             insertChar(e.key);
         } else if (e.key === "Enter") {
-            console.log("Enter");
+            commandExec();
         };
 
     });
