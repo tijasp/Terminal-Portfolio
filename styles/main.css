@@ -29,11 +29,20 @@ main {
     align-items: center;
 }
 
+a {
+    color: white;
+}
+
 
 /* Terminal styles */
 #terminal {
     width: 45rem;
-    aspect-ratio: 16 / 11;
+    height: 30rem;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
 
     background-color: var(--terminal-background);
     border: 1px solid #373944;
@@ -57,9 +66,13 @@ main {
 
 #terminalContent {
     padding: 0.5rem;
+    
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
+    flex: 1;
+
+    overflow-y: auto;
 
     font-family: var(--terminal-font);
     font-size: 1rem;
@@ -70,12 +83,6 @@ main {
     width: 100%;
 
     display: flex;
-}
-
-.terminalText {
-    font-family: var(--terminal-font);
-    font-size: 1rem;
-    color: white;
 }
 
 /* Command line prefix styles */

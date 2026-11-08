@@ -1,4 +1,40 @@
-const commandList = {
-    "help": "Shows all available commands",
-    "clear": "Clear the terminal output"
+export const languages = {
+    en: {
+        welcomeMsg1: "Type <span style='color: var(--green); font-weight: 700; text-decoration: underline; text-decoration-color: white'>help</span>",
+        welcomeMsg2: "to see available commands",
+        availableCmd: "Available commands",
+        aboutme: "About me",
+        aboutmeCmdOutput: "<br>Hi, I'm Tijasp! <br><br>I'm currently studying Fullstack Web Developpement,<br>with a specialization in UI/UX Design and the use of Frameworks. <br><br>I'm passionate about building websites, <br>I really enjoy the logic involved and solving problems. <br><br>What I'm focusing on: <br> - Frontend & Backed Developpment (with cleaner code)<br> - UI/UX Design <br> - Modern web Frameworks <br><br>Status: Learning & Experimenting<br>Current level: beginner <br> ",
+        projects: "Explore my projects",
+        projectCmdOutput1: "My projects",
+        projectCmdOutput2: "Simple and interactive Javascript To-Do list",
+        projectCmdOutput3: "Click on project a name to open it on GitHub",
+        socials: "Follow me on socials",
+        socialsCmdOutput1: "My socials medias",
+        socialsCmdOutput2: "Click here",
+        socialsCmdOutput3: "to open my GitHub page",
+        socialsCmdOutput4: "Discord: tijasp.dev",
+        clear: "Clear terminal",
+        language: "Change language (en/fr)",
+        cmdNotFound: "Command not found"
+    },
+    fr: {
+        welcomeMsg1: "Tapez <span style='color: var(--green); font-weight: 700; text-decoration: underline; text-decoration-color: white'>help</span>",
+        welcomeMsg2: " pour voir les commandes",
+        availableCmd: "Commandes disponibles",
+        aboutme: "À propos de moi",
+        aboutmeCmdOutput: "<br>Salut, moi c'est Tijasp ! <br><br>Je suis actuellement en formation de Dev Web Fullstack,<br>avec une spécialisation en UI/UX Design et en utilisation de Frameworks. <br><br>Je suis passionné par la création de sites,<br>j'aime beaucoup la logique qui se cache derrière et résoudre des <br>problèmes. <br><br>En apprentissage de : <br> - Développement Frontend & Backend (plus proprement)<br> - UI/UX Design <br> - Frameworks web modernes <br><br>Statut : Apprentissage & Expérimentation<br>Niveau actuel : Débutant <br> ",
+        projects: "Explorez mes projets",
+        projectCmdOutput1: "Mes projets",
+        projectCmdOutput2: "To-Do list simple et interactive en Javascript",
+        projectCmdOutput3: "Cliquez sur un nom de projet pour l'ouvrir dans GitHub",
+        socials: "Suivez-moi sur les réseaux",
+        socialsCmdOutput1: "Mes réseaux sociaux",
+        socialsCmdOutput2: "Cliquez ici",
+        socialsCmdOutput3: "pour ouvrir mon Github",
+        socialsCmdOutput4: "Discord: tijasp.dev",
+        clear: "Nettoyez le terminal",
+        language: "Changer la langue (en/fr)",
+        cmdNotFound: "Commande introuvabe"
+    }
 }
