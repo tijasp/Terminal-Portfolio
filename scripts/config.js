@@ -35,6 +35,6 @@ export const languages = {
         socialsCmdOutput4: "Discord: tijasp.dev",
         clear: "Nettoyez le terminal",
         language: "Changer la langue (en/fr)",
-        cmdNotFound: "Commande introuvabe"
+        cmdNotFound: "Commande introuvable"
     }
 }
