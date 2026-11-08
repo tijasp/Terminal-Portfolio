@@ -35,3 +35,8 @@ Navigate to the project directory:
 #### 3. Run the project
 
 Use a local development server such as the Live Server extension in Visual Studio Code.
+
+
+## Author
+**Tijasp**
+> Fullstack Web Development Student
