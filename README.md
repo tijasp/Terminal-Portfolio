@@ -2,6 +2,7 @@
 
 A personal portfolio deigned to look and feel like an Ubuntu terminal.
 You can explore it by interacting with a command line interface.
+URL: https://tijasp.dev/
 
 ##  Preview
 ![Website screenshot](https://github.com/tijasp/Terminal-Website/blob/main/screenshots/screenshot.png?raw=true)
