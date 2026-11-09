@@ -23,7 +23,27 @@ I'm passionate about building websites,
 I really enjoy the logic involved and solving problems. 
 
 What I'm focusing on: 
- - Frontend & Backed Developpment (with cleaner code)
+ - Frontend & Backed Developpment
+ - UI/UX Design 
+ - Modern web Frameworks 
+
+Status: Learning & Experimenting
+Current level: beginner `,
+
+        mobileAbout: `
+Hi, I'm Tijasp! 
+
+I'm currently studying
+Fullstack Web Developpement,
+with a specialization in UI/UX Design
+and the use of Frameworks. 
+
+I'm passionate about building websites, 
+I really enjoy the logic involved
+and solving problems. 
+
+What I'm focusing on: 
+ - Frontend & Backed Developpment
  - UI/UX Design 
  - Modern web Frameworks 
 
@@ -71,7 +91,7 @@ j'aime beaucoup la logique qui se cache derrière et résoudre des
 problèmes. 
 
 En apprentissage de : 
- - Développement Frontend & Backend (plus proprement)
+ - Développement Frontend & Backend
  - UI/UX Design 
  - Frameworks web modernes 
 

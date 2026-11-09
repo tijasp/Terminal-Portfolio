@@ -117,3 +117,17 @@ input {
 input:focus {
     outline: none;
 }
+
+/* Media Queries */
+@media screen and (max-width: 480px) {
+    #terminal {
+        width: 100%;
+        height: 50%;
+        margin: 1rem;
+    }
+
+    input,
+    #terminalBody {
+        font-size: 0.875rem;
+    }
+}

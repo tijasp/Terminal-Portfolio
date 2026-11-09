@@ -6,8 +6,19 @@ const terminalBody = document.getElementById("terminalBody");
 
 function insertWelcomeMessage() {
     let welcomeMessage = document.createElement("div");
-    welcomeMessage.innerHTML = `
-    <pre>
+
+    let welcomeMsg2 = languages[currentLang].welcomeMsg2;
+    if (currentLang === "fr") { welcomeMsg2 = welcomeMsg2.replace(" ", "") }
+
+    if (window.matchMedia("(max-width: 480px)").matches) {
+        welcomeMessage.innerHTML = `<pre>
+Welcome to Tijasp OS
+
+${languages[currentLang].welcomeMsg1}
+${welcomeMsg2}
+ `;
+    } else {
+        welcomeMessage.innerHTML = `<pre>
                    .-.
              .-'&#96;&#96;(|||)
           ,&#96;&#92; &#92;    &#96;-&#96;.
@@ -19,8 +30,8 @@ function insertWelcomeMessage() {
           &#96;./ /    .-.&#96;
              &#96;-..-(   ) 
                    &#96;-&#96; 
-<br>`;
-
+ `;
+    }
     terminalBody.append(welcomeMessage);
     insertTerminalInput();
 }
@@ -45,7 +56,11 @@ export function commandExec() {
             insertTerminalInput(`/${command}`);
             break;
         case "about":
-            insertContent(`${languages[currentLang].about}`);
+            if (window.matchMedia("(max-width: 480px)").matches) {
+                insertContent(`${languages[currentLang].mobileAbout}`);
+            } else {
+                insertContent(`${languages[currentLang].about}`);
+            }
             insertTerminalInput(`/${command}`);
             break;
         case "projects":
