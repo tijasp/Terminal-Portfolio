@@ -52,20 +52,13 @@ export function commandExec() {
 
     switch(command) {
         case "help":
-            insertContent(`${languages[currentLang].help}`);
-            insertTerminalInput(`/${command}`);
+            helpCommand();
             break;
         case "about":
-            if (window.matchMedia("(max-width: 480px)").matches) {
-                insertContent(`${languages[currentLang].mobileAbout}`);
-            } else {
-                insertContent(`${languages[currentLang].about}`);
-            }
-            insertTerminalInput(`/${command}`);
+            aboutCommand();
             break;
         case "projects":
-            insertContent(`${languages[currentLang].projects}`);
-            insertTerminalInput(`/${command}`);
+            projectsCommand();
             break;
         case "socials":
             insertContent(`${languages[currentLang].socials}`);
@@ -84,6 +77,29 @@ export function commandExec() {
     }
     autoScroll();
 };
+
+function helpCommand() {
+    insertContent(`${languages[currentLang].help}`);
+    insertTerminalInput(`/help`);
+}
+
+function aboutCommand() {
+    if (window.matchMedia("(max-width: 480px)").matches) {
+        insertContent(`${languages[currentLang].mobileAbout}`);
+    } else {
+        insertContent(`${languages[currentLang].about}`);
+    }
+    insertTerminalInput(`/about`);
+}
+
+function projectsCommand() {
+    if (window.matchMedia("(max-width: 480px)").matches) {
+        insertContent(`${languages[currentLang].mobileProjects}`);
+    } else {
+        insertContent(`${languages[currentLang].projects}`);
+    }
+    insertTerminalInput(`/projects`);
+}
 
 function clearTerminal() {
     terminalBody.innerHTML = "";

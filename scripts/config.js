@@ -57,6 +57,15 @@ My projects
 
 Click on a project name to open it on GitHub`,
 
+        mobileProjects: `
+My projects
+
+<a href="https://github.com/tijasp/To-Do-IT" target="_blank">To-Do IT</a>
+> Interactive JavaScript To-Do list
+
+Click on a project name 
+to open it on GitHub`,
+
         socials: `
 My socials medias
 
@@ -84,10 +93,31 @@ language    -    Changer la langue (en/fr)`,
 Salut, moi c'est Tijasp ! 
 
 Je suis actuellement en formation de Dev Web Fullstack,
-avec une spécialisation en UI/UX Design et en utilisation de Frameworks. 
+avec une spécialisation en UI/UX Design et utilisation de Frameworks. 
 
 Je suis passionné par la création de sites,
 j'aime beaucoup la logique qui se cache derrière et résoudre des 
+problèmes. 
+
+En apprentissage de : 
+ - Développement Frontend & Backend
+ - UI/UX Design 
+ - Frameworks web modernes 
+
+Statut : Apprentissage & Expérimentation
+Niveau actuel : Débutant `,
+
+        mobileAbout: `
+Salut, moi c'est Tijasp ! 
+
+Je suis actuellement en formation
+de Dev Web Fullstack,
+avec une spécialisation en UI/UX Design 
+et utilisation de Frameworks. 
+
+Je suis passionné par la création 
+de sites. J'aime beaucoup la logique 
+qui se cache derrière et résoudre des 
 problèmes. 
 
 En apprentissage de : 
@@ -104,6 +134,15 @@ Mes projets
 <a href="https://github.com/tijasp/To-Do-IT" target="_blank">To-Do IT</a>    -    To-Do list simple et interactive en JavaScript
 
 Cliquez sur un nom de projet pour l'ouvrir dans GitHub`,
+
+        mobileProjects: `
+Mes projets
+
+<a href="https://github.com/tijasp/To-Do-IT" target="_blank">To-Do IT</a>
+> To-Do list interactive en JavaScript
+
+Cliquez sur un nom de projet
+pour l'ouvrir dans GitHub`,
 
         socials: `
 Mes réseaux sociaux
