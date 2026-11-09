@@ -37,7 +37,7 @@ function insertTerminalInput(path) {
 };
 
 export function commandExec() {
-    const command = document.querySelector("#terminalBody > div:nth-last-child(1) > input").value;
+    const command = document.querySelector("#terminalBody > div:nth-last-child(1) > input").value.toLowerCase();
 
     switch(command) {
         case "help":
