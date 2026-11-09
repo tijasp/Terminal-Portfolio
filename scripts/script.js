@@ -2,7 +2,7 @@ import { keyboardListener } from "./eventListener.js";
 import { languages } from "./config.js";
 
 let currentLang = "en";
-const terminalContent = document.getElementById("terminalContent");
+const terminalBody = document.getElementById("terminalBody");
 
 function insertWelcomeMessage() {
     let welcomeMessage = document.createElement("div");
@@ -21,110 +21,58 @@ function insertWelcomeMessage() {
                    &#96;-&#96; 
 <br>`;
 
-    terminalContent.append(welcomeMessage);
+    terminalBody.append(welcomeMessage);
+    insertTerminalInput();
 }
 
 function insertTerminalInput(path) {
-    const cmdPrefix = document.createElement("div");
-    cmdPrefix.classList.add("terminalLine");
-    cmdPrefix.innerHTML = `
-        <span class="terminalUsername">tijasp@dev<span>:<span>~${path || ""}</span>$</span></span>
-            <pre><p></p></pre>
-        <span class="terminalCursor"></span>`;
-
-    terminalContent.append(cmdPrefix);
-};
-
-export function insertChar(key) {
-    const lastLine = document.querySelector("#terminalContent > div:nth-last-child(1)");
-    if (lastLine.classList.contains("commandOutput")) return;
-    
-    const username = lastLine.querySelector(".terminalUsername");
-    const spaceLeft = lastLine.clientWidth - username.offsetWidth - 8;
-    let typezone = lastLine.querySelector("p");
-
-    if (typezone.scrollWidth + 16 >= spaceLeft && key != "Backspace") return;
-
-    switch(key) {
-        case " ":
-            if (typezone.textContent.at(-1) === " ") break;
-            typezone.textContent += " ";
-            break;
-        case "Backspace":
-            typezone.textContent = (typezone.textContent.slice(0, -1));
-            break;
-        default:
-            typezone.textContent += key;
-            break;
-    };
+    terminalBody.insertAdjacentHTML("beforeend", `
+        <div class="terminalLine">
+            <span class="terminalUsername">tijasp@dev<span>:<span>~${path || ""}</span>$</span></span>
+            <input type="text" autofocus></input>
+        <div>
+        `);
+    let newInput = document.querySelector("#terminalBody > div:nth-last-child(1) > input");
+    newInput.focus();
 };
 
 export function commandExec() {
-    const lastLine = document.querySelector("#terminalContent > div:nth-last-child(1)");
-    let command = lastLine.querySelector("p").textContent.trim();
-    let oldCursor = document.querySelector(".terminalCursor");
-    oldCursor.classList.remove("terminalCursor");
+    const command = document.querySelector("#terminalBody > div:nth-last-child(1) > input").value;
 
-    loadingCommand();
-
-    setTimeout(() => {
-        oldCursor = document.querySelector(".terminalCursor");
-        oldCursor.classList.remove("terminalCursor");
-
-        switch(command) {
-            case "help":
-                insertLine(`${languages[currentLang].availableCmd} <br> `);
-                insertLine(`about       -    ${languages[currentLang].aboutme}`);
-                insertLine(`projects    -    ${languages[currentLang].projects}`);
-                insertLine(`socials     -    ${languages[currentLang].socials} <br> `);
-                insertLine(`clear       -    ${languages[currentLang].clear}`);
-                insertLine(`language    -    ${languages[currentLang].availableCmd}`);
-                insertTerminalInput(`/help`);
-                break;
-
-            case "about":
-                insertLine(languages[currentLang].aboutmeCmdOutput);
-                insertTerminalInput(`about`);
-                break;
-
-            case "projects":
-                insertLine(`${languages[currentLang].projectCmdOutput1}<br> `);
-                insertLine(`<a href="https://github.com/tijasp/To-Do-IT" target="_blank">To-Do IT</a>    -    ${languages[currentLang].projectCmdOutput2}`);
-                insertLine(`<br>${languages[currentLang].projectCmdOutput3}`);
-                insertTerminalInput(`projects`);
-                break;
-
-            case "socials":
-                insertLine(`${languages[currentLang].socialsCmdOutput1}<br> `);
-                insertLine(`<a href="https://github.com/tijasp" target="_blank">${languages[currentLang].socialsCmdOutput2}</a> ${languages[currentLang].socialsCmdOutput3}`);
-                insertLine(`${languages[currentLang].socialsCmdOutput4}`);
-                insertTerminalInput(`socials`);
-                break;
-
-            case "clear":
-                clearTerminal();
-                break;
-
-            case "language":
-                switchLanguage();
-                break;
-
-            default:
-                insertLine(`${command} : ${languages[currentLang].cmdNotFound}`);
-                insertTerminalInput(``);
-                break;
-        }
-        autoScroll();
-    }, 250);
+    switch(command) {
+        case "help":
+            insertContent(`${languages[currentLang].help}`);
+            insertTerminalInput(`/${command}`);
+            break;
+        case "about":
+            insertContent(`${languages[currentLang].about}`);
+            insertTerminalInput(`/${command}`);
+            break;
+        case "projects":
+            insertContent(`${languages[currentLang].projects}`);
+            insertTerminalInput(`/${command}`);
+            break;
+        case "socials":
+            insertContent(`${languages[currentLang].socials}`);
+            insertTerminalInput(`/${command}`);
+            break;
+        case "clear":
+            clearTerminal();
+            break;
+        case "language":
+            switchLanguage();
+            break;
+        default:
+            insertContent(`${command} : ${languages[currentLang].cmdNotFound}`);
+            insertTerminalInput(``);
+            break;
+    }
     autoScroll();
 };
 
 function clearTerminal() {
-    while (terminalContent.lastChild) {
-        terminalContent.removeChild(terminalContent.lastChild);
-    };
+    terminalBody.innerHTML = "";
     insertWelcomeMessage();
-    insertTerminalInput();
 };
 
 function switchLanguage() {
@@ -132,31 +80,15 @@ function switchLanguage() {
     clearTerminal();
 }
 
-function insertLine(text) {
-    let newLine = document.createElement("div");
-    newLine.innerHTML = `<pre>${text}</pre>`;
-    terminalContent.append(newLine);
-};
-
-function loadingCommand() {
-    const newLine = document.createElement("div");
-    newLine.classList.add("terminalLine");
-    newLine.classList.add("commandOutput");
-    terminalContent.append(newLine);
-
-    const newCursor = document.createElement("span");
-    newCursor.classList.add("terminalCursor");
-    
-    newLine.append(newCursor);
-    terminalContent.append(newLine);
+function insertContent(text) {
+    terminalBody.insertAdjacentHTML("beforeend", `<pre>${text}</pre>`);
 };
 
 function autoScroll() {
-    terminalContent.scrollTop = terminalContent.scrollHeight;
+    terminalBody.scrollTop = terminalBody.scrollHeight;
 };
 
 export function main() {
     insertWelcomeMessage();
-    insertTerminalInput();
     keyboardListener();
 };
