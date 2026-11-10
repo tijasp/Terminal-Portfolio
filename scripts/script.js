@@ -1,21 +1,20 @@
-import { keyboardListener } from "./eventListener.js";
+import { helpCommand, aboutCommand, projectsCommand, socialsCommand, clearCommand, languageCommand, cmdNotFound, currentLang } from "./commands.js";
+import { startEventListeners } from "./eventListener.js";
 import { languages } from "./config.js";
 
-let currentLang = "en";
-const terminalBody = document.getElementById("terminalBody");
+const TERMINAL_BODY = document.getElementById("terminalBody");
 
-function insertWelcomeMessage() {
+export function insertWelcomeMessage() {
+    const selectedLanguage = currentLang;
     let welcomeMessage = document.createElement("div");
 
-    let welcomeMsg2 = languages[currentLang].welcomeMsg2;
-    if (currentLang === "fr") { welcomeMsg2 = welcomeMsg2.replace(" ", "") }
+    let welcomeMsg2 = languages[selectedLanguage].welcomeMsg2;
+    if (selectedLanguage === "fr") { welcomeMsg2 = welcomeMsg2.replace(" ", "") }
 
     if (window.matchMedia("(max-width: 480px)").matches) {
         welcomeMessage.innerHTML = `<pre>
 Welcome to Tijasp OS
-
-${languages[currentLang].welcomeMsg1}
-${welcomeMsg2}
+${languages[selectedLanguage].welcomeMsg1} ${welcomeMsg2}
  `;
     } else {
         welcomeMessage.innerHTML = `<pre>
@@ -24,31 +23,43 @@ ${welcomeMsg2}
           ,&#96;&#92; &#92;    &#96;-&#96;.
          /   &#92; '&#96;&#96;-.   &#96;
        .-.  ,       &#96;___:
-      (:::) :        ___                ${languages[currentLang].welcomeMsg1}
-       &#96;-&#96;  &#96;       ,   :        ${languages[currentLang].welcomeMsg2}
+      (:::) :        ___                ${languages[selectedLanguage].welcomeMsg1}
+       &#96;-&#96;  &#96;       ,   :        ${languages[selectedLanguage].welcomeMsg2}
          &#92;   / ,..-&#96;   , 
           &#96;./ /    .-.&#96;
              &#96;-..-(   ) 
                    &#96;-&#96; 
  `;
     }
-    terminalBody.append(welcomeMessage);
+    TERMINAL_BODY.append(welcomeMessage);
     insertTerminalInput();
-}
+};
 
-function insertTerminalInput(path) {
-    terminalBody.insertAdjacentHTML("beforeend", `
+export function insertTerminalInput(path) {
+    TERMINAL_BODY.insertAdjacentHTML("beforeend", `
         <div class="terminalLine">
             <span class="terminalUsername">tijasp@dev<span>:<span>~${path || ""}</span>$</span></span>
             <input type="text" autofocus></input>
         <div>
         `);
-    let newInput = document.querySelector("#terminalBody > div:nth-last-child(1) > input");
-    newInput.focus();
+    focusOnLastInput();
+};
+
+export function focusOnLastInput() {
+    const lastInput = TERMINAL_BODY.querySelector("div:nth-last-child(1) > input");
+    lastInput.focus();
+}
+
+export function insertContent(text) {
+    TERMINAL_BODY.insertAdjacentHTML("beforeend", `<pre>${text}</pre>`);
+};
+
+function autoScroll() {
+    TERMINAL_BODY.scrollTop = TERMINAL_BODY.scrollHeight;
 };
 
 export function commandExec() {
-    const command = document.querySelector("#terminalBody > div:nth-last-child(1) > input").value.toLowerCase();
+    const command = TERMINAL_BODY.querySelector("div:nth-last-child(1) > input").value.toLowerCase();
 
     switch(command) {
         case "help":
@@ -61,65 +72,22 @@ export function commandExec() {
             projectsCommand();
             break;
         case "socials":
-            insertContent(`${languages[currentLang].socials}`);
-            insertTerminalInput(`/${command}`);
+            socialsCommand();
             break;
         case "clear":
-            clearTerminal();
+            clearCommand();
             break;
         case "language":
-            switchLanguage();
+            languageCommand();
             break;
         default:
-            insertContent(`${command} : ${languages[currentLang].cmdNotFound}`);
-            insertTerminalInput(``);
+            cmdNotFound(command);
             break;
     }
     autoScroll();
 };
 
-function helpCommand() {
-    insertContent(`${languages[currentLang].help}`);
-    insertTerminalInput(`/help`);
-}
-
-function aboutCommand() {
-    if (window.matchMedia("(max-width: 480px)").matches) {
-        insertContent(`${languages[currentLang].mobileAbout}`);
-    } else {
-        insertContent(`${languages[currentLang].about}`);
-    }
-    insertTerminalInput(`/about`);
-}
-
-function projectsCommand() {
-    if (window.matchMedia("(max-width: 480px)").matches) {
-        insertContent(`${languages[currentLang].mobileProjects}`);
-    } else {
-        insertContent(`${languages[currentLang].projects}`);
-    }
-    insertTerminalInput(`/projects`);
-}
-
-function clearTerminal() {
-    terminalBody.innerHTML = "";
-    insertWelcomeMessage();
-};
-
-function switchLanguage() {
-    currentLang = currentLang === "en" ? "fr" : "en";
-    clearTerminal();
-}
-
-function insertContent(text) {
-    terminalBody.insertAdjacentHTML("beforeend", `<pre>${text}</pre>`);
-};
-
-function autoScroll() {
-    terminalBody.scrollTop = terminalBody.scrollHeight;
-};
-
 export function main() {
     insertWelcomeMessage();
-    keyboardListener();
+    startEventListeners();
 };
