@@ -112,6 +112,9 @@ input {
 
     background-color: var(--terminal-background);
     border: none;
+
+    caret-shape: block;
+    caret-color: white;
 }
 
 input:focus {
