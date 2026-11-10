@@ -44,6 +44,10 @@ a {
 
     overflow: hidden;
 
+    font-family: var(--terminal-font);
+    font-size: 1rem;
+    color: white;
+
     background-color: var(--terminal-background);
     border: 1px solid #373944;
     border-radius: 1rem;
@@ -55,9 +59,7 @@ a {
     display: flex;
     justify-content: center;
 
-    font-family: var(--terminal-font);
     font-size: 0.5rem;
-    color: white;
 
     background-color: var(--terminal-header-background);
     border-radius: 1rem 1rem 0 0;
@@ -73,10 +75,6 @@ a {
     flex: 1;
 
     overflow-y: auto;
-
-    font-family: var(--terminal-font);
-    font-size: 1rem;
-    color: white;
 }
 
 .terminalLine {
@@ -121,6 +119,63 @@ input:focus {
     outline: none;
 }
 
+/* Intro Styles */
+#introContainer {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    font-family: var(--terminal-font);
+    color: white;
+    
+    background-color: var(--background);
+    
+    animation: intro 3s ease;
+}
+
+#introContainer {
+    font-size: 2rem;
+}
+
+@keyframes intro {
+    0% { visibility: visible; }
+    100% { visibility: hidden; }
+}
+
+.typewriter {
+    width: 15ch;
+    padding-right: 0.25rem;
+    
+    border-right: 4px solid white;
+    overflow: hidden;
+    white-space: nowrap;
+    
+    animation: 
+    typing 1s steps(15, end),
+    blink 1s infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    } to {
+        width: 15ch;
+    }
+}
+
+@keyframes blink {
+    0%,
+    50% { border-color: white; }
+    
+    51%,
+    100% { border-color: transparent; }
+}
+
 /* Media Queries */
 @media screen and (max-width: 480px) {
     #terminal {
@@ -132,5 +187,9 @@ input:focus {
     input,
     #terminalBody {
         font-size: 0.875rem;
+    }
+
+    #introContainer h1 {
+        font-size: 1.5rem;
     }
 }
