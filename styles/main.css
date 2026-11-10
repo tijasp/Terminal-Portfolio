@@ -57,13 +57,48 @@ a {
     padding: 0.5rem;
 
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
 
     font-size: 0.5rem;
 
     background-color: var(--terminal-header-background);
     border-radius: 1rem 1rem 0 0;
     border-bottom: 2px solid #1c1d28;
+}
+
+#terminalButtonGroup {
+    display: flex; 
+    gap: 0.5rem;
+    justify-content: flex-end;
+}
+
+.terminalButton {
+    width: 22px;
+    height: 22px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 0.75rem;
+    color: white;
+    
+    background-color: #444758;
+    border-color: transparent;
+    border-radius: 100%;
+
+    cursor: pointer;
+}
+
+#terminalHeader h1 {
+    flex: 3;
+    text-align: center;
+}
+
+#blankElement,
+#terminalButtonGroup {
+    flex: 1;
 }
 
 #terminalBody {
