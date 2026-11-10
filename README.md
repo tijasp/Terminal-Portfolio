@@ -5,13 +5,13 @@ You can explore it by interacting with a command line interface.
 
 🚀 **Live demo:** https://tijasp.dev/
 
-
 ## 🔎 Preview
 ![Website screenshot](https://github.com/tijasp/Terminal-Portfolio/blob/main/screenshots/screenshot.png?raw=true)
 
 
 ## ✨ Features
 
+-   **Loading screen animation*** - Intro with CSS animation
 -   **Terminal inspired interface** - A minimalist design inspired by Ubuntu terminal
 -   **Interactive command system** - Navigate using commands
 -   **Multilingual support** - Switch between English and French
