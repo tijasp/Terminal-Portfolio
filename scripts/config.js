@@ -54,6 +54,7 @@ Current level: beginner `,
 My projects
 
 <a href="https://github.com/tijasp/To-Do-IT" target="_blank">To-Do IT</a>    -    Simple and interactive JavaScript To-Do list
+<a href="https://github.com/tijasp/IP-Lookup-Website" target="_blank">IP Lookup</a>   -    Simple IP Lookup website
 
 Click on a project name to open it on GitHub`,
 
@@ -62,6 +63,9 @@ My projects
 
 <a href="https://github.com/tijasp/To-Do-IT" target="_blank">To-Do IT</a>
 > Interactive JavaScript To-Do list
+
+<a href="https://github.com/tijasp/IP-Lookup-Website" target="_blank">IP Lookup</a>
+> Simple IP Lookup website
 
 Click on a project name 
 to open it on GitHub`,
@@ -132,6 +136,7 @@ Niveau actuel : Débutant `,
 Mes projets
 
 <a href="https://github.com/tijasp/To-Do-IT" target="_blank">To-Do IT</a>    -    To-Do list simple et interactive en JavaScript
+<a href="https://github.com/tijasp/IP-Lookup-Website" target="_blank">IP Lookup</a>   -    Site simple d'IP Lookup
 
 Cliquez sur un nom de projet pour l'ouvrir dans GitHub`,
 
@@ -140,6 +145,9 @@ Mes projets
 
 <a href="https://github.com/tijasp/To-Do-IT" target="_blank">To-Do IT</a>
 > To-Do list interactive en JavaScript
+
+<a href="https://github.com/tijasp/IP-Lookup-Website" target="_blank">IP Lookup</a>
+> Site simple d'IP Lookup
 
 Cliquez sur un nom de projet
 pour l'ouvrir dans GitHub`,
